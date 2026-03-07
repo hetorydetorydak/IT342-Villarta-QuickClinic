@@ -9,6 +9,7 @@ import edu.cit.villarta.quickclinic.dto.RegisterRequest;
 import edu.cit.villarta.quickclinic.model.User;
 import edu.cit.villarta.quickclinic.service.AuthService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
