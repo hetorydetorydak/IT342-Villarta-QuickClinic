@@ -1,5 +1,8 @@
 package edu.cit.villarta.quickclinic.service;
 
+import edu.cit.villarta.quickclinic.dto.AuthResponse;
+import edu.cit.villarta.quickclinic.dto.LoginRequest;
+import edu.cit.villarta.quickclinic.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,5 +34,32 @@ public class AuthService {
         user.setRole(request.getRole());
 
         return userRepository.save(user);
+    }
+    public AuthResponse login(LoginRequest request){
+
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
+
+        if(!passwordEncoder.matches(request.getPassword(), user.getPassword())){
+            throw new RuntimeException("Invalid email or password");
+        }
+
+        AuthResponse response = new AuthResponse();
+
+        UserResponse userResponse = new UserResponse();
+        userResponse.setId(user.getId());
+        userResponse.setFirstname(user.getFirstname());
+        userResponse.setLastname(user.getLastname());
+        userResponse.setEmail(user.getEmail());
+        userResponse.setRole(user.getRole());
+        userResponse.setCreatedAt(user.getCreatedAt());
+
+        response.setUser(userResponse);
+
+        // temporary token until JWT is implemented
+        response.setAccessToken("dummy-access-token");
+        response.setRefreshToken("dummy-refresh-token");
+
+        return response;
     }
 }
