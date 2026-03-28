@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Screen -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="edu.cit.villarta.quickclinic.fragment.LoginFragment"
+        android:label="Login">
+
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Register Screen -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="edu.cit.villarta.quickclinic.fragment.RegisterFragment"
+        android:label="Register">
+
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Home Screen -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="edu.cit.villarta.quickclinic.fragment.HomeFragment"
+        android:label="Home">
+
+        <!-- Arguments passed from LoginFragment -->
+        <argument
+            android:name="firstname"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="role"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+</navigation>
