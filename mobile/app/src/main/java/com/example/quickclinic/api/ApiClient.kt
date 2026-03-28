@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.api
+package com.example.quickclinic.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,11 +7,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    private const val BASE_URL = "https://<your-railway-backend-url>/"
-    // For emulator local testing use: "http://10.0.2.2:8080/"
+    private const val BASE_URL = "http://10.0.2.2:8080/"
+    // For emulator local testing: "http://10.0.2.2:8080/"
+    // For physical device/Railway deployed: replace with actual URL
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+        var level = HttpLoggingInterceptor.Level.BODY
     }
 
     private val httpClient = OkHttpClient.Builder()

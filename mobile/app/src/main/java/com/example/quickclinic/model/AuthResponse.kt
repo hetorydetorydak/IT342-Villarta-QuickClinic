@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.model
+package com.example.quickclinic.model
 
 data class AuthResponse(
     val user: UserResponse,

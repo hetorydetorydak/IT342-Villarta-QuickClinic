@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.fragment
+package com.example.quickclinic.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import edu.cit.villarta.quickclinic.R
-import edu.cit.villarta.quickclinic.api.ApiClient
-import edu.cit.villarta.quickclinic.model.LoginRequest
+import com.example.quickclinic.R
+import com.example.quickclinic.api.ApiClient
+import com.example.quickclinic.model.LoginRequest
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {

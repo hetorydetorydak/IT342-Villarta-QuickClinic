@@ -1,12 +1,12 @@
-package edu.cit.villarta.quickclinic.api
+package com.example.quickclinic.api
 
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import edu.cit.villarta.quickclinic.model.RegisterRequest
-import edu.cit.villarta.quickclinic.model.LoginRequest
-import edu.cit.villarta.quickclinic.model.UserResponse
-import edu.cit.villarta.quickclinic.model.AuthResponse
+import com.example.quickclinic.model.RegisterRequest
+import com.example.quickclinic.model.LoginRequest
+import com.example.quickclinic.model.UserResponse
+import com.example.quickclinic.model.AuthResponse
 
 interface ApiService {
 
