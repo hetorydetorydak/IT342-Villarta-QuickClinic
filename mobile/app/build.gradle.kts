@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "edu.cit.villarta.quickclinic"
+    namespace = "com.example.quickclinic"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "edu.cit.villarta.quickclinic"
+        applicationId = "com.example.quickclinic"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

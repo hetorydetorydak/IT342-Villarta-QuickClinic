@@ -1,8 +1,8 @@
-package edu.cit.villarta.quickclinic.activity
+package com.example.quickclinic.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import edu.cit.villarta.quickclinic.R
+import com.example.quickclinic.R
 
 class MainActivity : AppCompatActivity() {
 

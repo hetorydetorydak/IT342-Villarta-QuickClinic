@@ -7,7 +7,7 @@
     <!-- Login Screen -->
     <fragment
         android:id="@+id/loginFragment"
-        android:name="edu.cit.villarta.quickclinic.fragment.LoginFragment"
+        android:name="com.example.quickclinic.fragment.LoginFragment"
         android:label="Login">
 
         <action
@@ -26,7 +26,7 @@
     <!-- Register Screen -->
     <fragment
         android:id="@+id/registerFragment"
-        android:name="edu.cit.villarta.quickclinic.fragment.RegisterFragment"
+        android:name="com.example.quickclinic.fragment.RegisterFragment"
         android:label="Register">
 
         <action
@@ -39,7 +39,7 @@
     <!-- Home Screen -->
     <fragment
         android:id="@+id/homeFragment"
-        android:name="edu.cit.villarta.quickclinic.fragment.HomeFragment"
+        android:name="com.example.quickclinic.fragment.HomeFragment"
         android:label="Home">
 
         <!-- Arguments passed from LoginFragment -->
