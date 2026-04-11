@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.cit.villarta.quickclinic.dto.ApiResponse;
-import edu.cit.villarta.quickclinic.dtog.AppointmentRequest;
+import edu.cit.villarta.quickclinic.dto.AppointmentRequest;
 import edu.cit.villarta.quickclinic.dto.AppointmentResponse;
 import edu.cit.villarta.quickclinic.security.JwtProvider;
 import edu.cit.villarta.quickclinic.service.AppointmentService;
