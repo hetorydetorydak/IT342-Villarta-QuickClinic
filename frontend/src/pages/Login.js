@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import api from "../services/api";
+import { loginUser } from "../services/api";
 import { saveToken } from "../utils/token";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -30,6 +30,16 @@ margin-bottom:8px;
 const Subtitle = styled.p`
 color:#777;
 margin-bottom:30px;
+`;
+
+const ErrorMessage = styled.div`
+background: #ffe0e0;
+color: #c00;
+padding: 12px;
+border-radius: 6px;
+margin-bottom: 20px;
+font-size: 14px;
+border-left: 4px solid #c00;
 `;
 
 const ForgotPassword = styled.a`
@@ -99,25 +109,35 @@ function Login(){
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = async () => {
+        setError("");
 
-        try{
-
-            const res = await api.post("/auth/login",{
-                email,
-                password
-            });
-
-            saveToken(res.data.accessToken);
-
-            navigate("/dashboard");
-
-        }catch(err){
-            alert("Invalid credentials");
+        if (!email || !password) {
+            setError("Please enter both email and password");
+            return;
         }
 
+        setLoading(true);
+
+        try{
+            const res = await loginUser(email, password);
+            saveToken(res.data.accessToken);
+            navigate("/dashboard");
+        }catch(err){
+            setError(err.response?.data?.message || "Invalid credentials. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleLogin();
+        }
     };
 
     return(
@@ -129,10 +149,13 @@ function Login(){
                 <Title>Welcome Back</Title>
                 <Subtitle>Sign in to your account to continue</Subtitle>
 
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+
                 <Input
                     placeholder="your.email@university.edu"
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
+                    onKeyPress={handleKeyPress}
                 />
 
                 <Input
@@ -140,12 +163,13 @@ function Login(){
                     placeholder="••••••••"
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
+                    onKeyPress={handleKeyPress}
                 />
 
                 <ForgotPassword>Forgot password?</ForgotPassword>
 
-                <Button onClick={handleLogin}>
-                    Sign In
+                <Button onClick={handleLogin} disabled={loading}>
+                    {loading ? "Signing in..." : "Sign In"}
                 </Button>
 
                 <Divider>Or continue with</Divider>
