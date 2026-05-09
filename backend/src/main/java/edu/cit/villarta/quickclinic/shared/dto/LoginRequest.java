@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.dto;
+package edu.cit.villarta.quickclinic.shared.dto;
 
 import lombok.Getter;
 import lombok.Setter;

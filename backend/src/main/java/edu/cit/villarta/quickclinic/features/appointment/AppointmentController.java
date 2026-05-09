@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.controller;
+package edu.cit.villarta.quickclinic.features.appointment;
 
 import java.util.List;
 
@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.cit.villarta.quickclinic.dto.ApiResponse;
-import edu.cit.villarta.quickclinic.dto.AppointmentRequest;
-import edu.cit.villarta.quickclinic.dto.AppointmentResponse;
-import edu.cit.villarta.quickclinic.security.JwtProvider;
-import edu.cit.villarta.quickclinic.service.AppointmentService;
+import edu.cit.villarta.quickclinic.shared.dto.ApiResponse;
+import edu.cit.villarta.quickclinic.shared.dto.AppointmentRequest;
+import edu.cit.villarta.quickclinic.shared.dto.AppointmentResponse;
+import edu.cit.villarta.quickclinic.shared.security.JwtProvider;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController

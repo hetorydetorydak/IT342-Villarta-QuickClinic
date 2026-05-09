@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.service;
+package edu.cit.villarta.quickclinic.features.appointment;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,12 +6,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.cit.villarta.quickclinic.dto.AppointmentRequest;
-import edu.cit.villarta.quickclinic.dto.AppointmentResponse;
-import edu.cit.villarta.quickclinic.model.Appointment;
-import edu.cit.villarta.quickclinic.model.User;
-import edu.cit.villarta.quickclinic.repository.AppointmentRepository;
-import edu.cit.villarta.quickclinic.repository.UserRepository;
+import edu.cit.villarta.quickclinic.shared.dto.AppointmentRequest;
+import edu.cit.villarta.quickclinic.shared.dto.AppointmentResponse;
+import edu.cit.villarta.quickclinic.features.auth.User;
+import edu.cit.villarta.quickclinic.features.auth.UserRepository;
 
 @Service
 public class AppointmentService {
@@ -25,7 +23,7 @@ public class AppointmentService {
     public AppointmentResponse createAppointment(AppointmentRequest request, Long userId) {
         System.out.println("Creating appointment for user ID: " + userId);
         System.out.println("Appointment request: " + request.getAppointmentType() + ", " + request.getSymptoms());
-        
+
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 

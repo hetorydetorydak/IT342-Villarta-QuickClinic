@@ -1,11 +1,9 @@
-package edu.cit.villarta.quickclinic.repository;
+package edu.cit.villarta.quickclinic.features.auth;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import edu.cit.villarta.quickclinic.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

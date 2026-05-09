@@ -1,16 +1,14 @@
-package edu.cit.villarta.quickclinic.service;
+package edu.cit.villarta.quickclinic.features.auth;
 
-import edu.cit.villarta.quickclinic.dto.AuthResponse;
-import edu.cit.villarta.quickclinic.dto.LoginRequest;
-import edu.cit.villarta.quickclinic.dto.UserResponse;
-import edu.cit.villarta.quickclinic.security.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import edu.cit.villarta.quickclinic.dto.RegisterRequest;
-import edu.cit.villarta.quickclinic.model.User;
-import edu.cit.villarta.quickclinic.repository.UserRepository;
+import edu.cit.villarta.quickclinic.shared.dto.AuthResponse;
+import edu.cit.villarta.quickclinic.shared.dto.LoginRequest;
+import edu.cit.villarta.quickclinic.shared.dto.RegisterRequest;
+import edu.cit.villarta.quickclinic.shared.dto.UserResponse;
+import edu.cit.villarta.quickclinic.shared.security.JwtProvider;
 
 @Service
 public class AuthService {

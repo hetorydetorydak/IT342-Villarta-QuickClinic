@@ -1,6 +1,4 @@
-package edu.cit.villarta.quickclinic.model;
-
-import java.time.LocalDate;
+package edu.cit.villarta.quickclinic.features.auth;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -8,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -17,54 +13,46 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "appointments")
+@Table(name = "users")
 @Getter
 @Setter
-public class Appointment {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(nullable = false)
+    private String firstname;
 
     @Column(nullable = false)
-    private String appointmentType; // EMERGENCY, SAME_DAY, SCHEDULED
+    private String lastname;
+
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @Column(nullable = false)
-    private String symptoms;
+    private String password;
+
+    // private boolean isActive = true;
 
     @Column(nullable = false)
-    private LocalDate preferredDate;
-
-    @Column(nullable = false)
-    private String timeSlot;
-
-    @Column
-    private String attachment;
-
-    @Column(nullable = false)
-    private String status; // PENDING, APPROVED, REJECTED, COMPLETED
+    private String role;
 
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column
-    private LocalDateTime updatedAt;
+    // private LocalDateTime updatedAt;
+
 
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-        if (status == null) {
-            status = "PENDING";
-        }
+        // updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        // updatedAt = LocalDateTime.now();
     }
 }

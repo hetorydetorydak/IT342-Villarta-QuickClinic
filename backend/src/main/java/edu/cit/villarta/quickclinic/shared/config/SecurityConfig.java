@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.config;
+package edu.cit.villarta.quickclinic.shared.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,8 +12,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import edu.cit.villarta.quickclinic.security.JwtAuthenticationFilter;
-import edu.cit.villarta.quickclinic.security.JwtProvider;
+import edu.cit.villarta.quickclinic.shared.security.JwtAuthenticationFilter;
+import edu.cit.villarta.quickclinic.shared.security.JwtProvider;
 
 import java.util.Arrays;
 

@@ -1,19 +1,16 @@
-package edu.cit.villarta.quickclinic.dto;
-
-import java.time.LocalDateTime;
+package edu.cit.villarta.quickclinic.shared.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class UserResponse {
+public class RegisterRequest {
 
-    private Long id;
     private String firstname;
     private String lastname;
     private String email;
+    private String password;
     private String role;
-    private LocalDateTime createdAt;
 
 }

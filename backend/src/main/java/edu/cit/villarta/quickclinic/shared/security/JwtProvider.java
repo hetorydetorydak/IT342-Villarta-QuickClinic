@@ -1,4 +1,4 @@
-package edu.cit.villarta.quickclinic.security;
+package edu.cit.villarta.quickclinic.shared.security;
 
 import java.util.Date;
 
