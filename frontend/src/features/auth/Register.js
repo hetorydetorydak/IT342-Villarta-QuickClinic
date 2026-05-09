@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import { registerUser } from "../services/api";
+import Input from "../../shared/components/Input";
+import Button from "../../shared/components/Button";
+import { register } from "./authApi";
 import { useNavigate, Link } from "react-router-dom";
 
 const Page = styled.div`
@@ -93,7 +93,7 @@ function Register() {
         setLoading(true);
 
         try {
-            await registerUser({
+            await register({
                 firstname,
                 lastname,
                 email,

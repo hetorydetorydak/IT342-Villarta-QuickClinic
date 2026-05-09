@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import { createAppointment } from "../services/api";
+import Button from "../../shared/components/Button";
+import Input from "../../shared/components/Input";
+import { bookAppointment } from "./appointmentApi";
 
 const Page = styled.div`
     min-height: 100vh;
@@ -284,7 +284,7 @@ function BookAppointment() {
                 attachment: attachment ? attachment.name : null,
             };
 
-            await createAppointment(appointmentData);
+            await bookAppointment(appointmentData);
             setSuccess(true);
         } catch (err) {
             console.error("Appointment submission error:", err);

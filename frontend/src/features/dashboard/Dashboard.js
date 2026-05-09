@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { Layout } from "../components/Layout";
-import { getAppointments } from "../services/api";
-import { getUserFromToken } from "../utils/token";
+import { Layout } from "../../shared/components/Layout";
+import { getAppointmentHistory } from "../appointment/appointmentApi";
+import { getUserFromToken } from "../../shared/utils/token";
 
 const PageTitle = styled.h1`
     font-size: 28px;
@@ -231,7 +231,7 @@ function Dashboard() {
 
     const fetchAppointments = async () => {
         try {
-            const response = await getAppointments();
+            const response = await getAppointmentHistory();
             setAppointments(response.data || []);
         } catch (err) {
             console.error("Failed to fetch appointments:", err);

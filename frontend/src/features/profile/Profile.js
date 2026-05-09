@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getUserFromToken } from '../utils/token';
+import { getUserFromToken } from '../../shared/utils/token';
 
 // ─── Styled Components ───────────────────────────────────────────
 

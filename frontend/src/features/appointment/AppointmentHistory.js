@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import { getAppointments } from "../services/api";
+import Button from "../../shared/components/Button";
+import { getAppointmentHistory } from "./appointmentApi";
 
 const Page = styled.div`
     min-height: 100vh;
@@ -209,7 +209,7 @@ function AppointmentHistory() {
     const fetchAppointments = async () => {
         try {
             setLoading(true);
-            const response = await getAppointments();
+            const response = await getAppointmentHistory();
             setAppointments(response.data || []);
             setError("");
         } catch (err) {

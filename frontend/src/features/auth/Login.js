@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import { loginUser } from "../services/api";
-import { saveToken } from "../utils/token";
+import Input from "../../shared/components/Input";
+import Button from "../../shared/components/Button";
+import { login } from "./authApi";
+import { saveToken } from "../../shared/utils/token";
 import { useNavigate, Link } from "react-router-dom";
 
 const Page = styled.div`
@@ -124,7 +124,7 @@ function Login(){
         setLoading(true);
 
         try{
-            const res = await loginUser(email, password);
+            const res = await login({ email, password });
             saveToken(res.data.accessToken);
             navigate("/dashboard");
         }catch(err){

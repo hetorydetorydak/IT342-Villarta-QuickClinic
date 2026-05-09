@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { getAppointments, getUserFromToken } from '../services/api';
-import { getUserFromToken as getUserFromTokenUtil } from '../utils/token';
+import { getAppointmentHistory } from '../appointment/appointmentApi';
+import { getUserFromToken as getUserFromTokenUtil} from '../../shared/utils/token';
+
 
 // ─── Styled Components ───────────────────────────────────────────
 
@@ -239,7 +240,7 @@ export function StudentDashboard() {
 
   const fetchAppointments = async () => {
     try {
-      const response = await getAppointments();
+      const response = await getAppointmentHistory();
       setAppointments(response.data || []);
     } catch (err) {
       console.error('Failed to fetch appointments:', err);
