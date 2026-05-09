@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyles } from "./styles/GlobalStyles";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import BookAppointment from "./pages/BookAppointment";
-import AppointmentHistory from "./pages/AppointmentHistory";
-import { StudentDashboard } from "./pages/StudentDashboard";
-import { Profile } from "./pages/Profile";
-import { Layout } from "./components/Layout";
-import PrivateRoute from "./components/PrivateRoute";
-import { getToken } from "./utils/token";
+import { theme, GlobalStyles } from "./shared/styles/GlobalStyles";
+import Login from "./features/auth/Login";
+import Register from "./features/auth/Register";
+import Dashboard from "./features/dashboard/Dashboard";
+import BookAppointment from "./features/appointment/BookAppointment";
+import AppointmentHistory from "./features/appointment/AppointmentHistory";
+import { StudentDashboard } from "./features/dashboard/StudentDashboard";
+import { Profile } from "./features/profile/Profile";
+import { Layout } from "./shared/components/Layout";
+import PrivateRoute from "./shared/components/PrivateRoute";
+import { getToken } from "./shared/utils/token";
 
 function App() {
     const isAuthenticated = !!getToken();
